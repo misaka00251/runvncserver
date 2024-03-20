@@ -1,0 +1,15 @@
+[Unit]
+Description=Remote desktop service (VNC)
+After=syslog.target network.target systemd-user-sessions.service
+
+[Service]
+Type=forking
+User=openeuler
+WorkingDirectory=/home/openeuler
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/local/bin/startvnc start
+ExecStop=/usr/local/bin/startvnc stop
+
+[Install]
+WantedBy=multi-user.target

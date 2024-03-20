@@ -33,7 +33,7 @@ VNCPORT="5900"
 
 # PID of the actual VNC server running
 # The PID is actually created this way, so it is compatible with the vncserver command
-# if you want to kill the VNC server manually, just type 
+# if you want to kill the VNC server manually, just type
 # vncserver -kill :0
 PIDFILE="${VNCDIR}/${HOSTNAME}${DISPLAY}.pid"
 
@@ -96,7 +96,7 @@ case "$1" in
         fi
 
         ;;
-    
+
     restart)
 
         echo -n "Restarting VNC Server on display ${DISPLAY} "
@@ -106,7 +106,7 @@ case "$1" in
             kill -9 ${VAR}
 
             if [ $? -eq 0 ]
-            then 
+            then
                 ${VNCSERVER} -display ${DISPLAY} -passwordfile ${PASSWDFILE} -rfbport ${VNCPORT} >> ${LOGFILE} 2>&1 &
                 echo -e ${OK}
 		echo
@@ -139,7 +139,7 @@ case "$1" in
     ;;
 
     stop)
-    
+
         echo -n "Stopping VNC Server: "
         fn_pid
         if [ $? -eq 0 ]
